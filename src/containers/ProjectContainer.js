@@ -3,6 +3,7 @@ import { Route, Switch, withRouter } from "react-router-dom";
 import Form from "../components/Form";
 import Search from "../components/Search";
 import ProjectBoard from "../components/ProjectBoard"
+import NavBar from "../components/NavBar";
 
 
 class ProjectContainer extends Component {
@@ -56,14 +57,26 @@ class ProjectContainer extends Component {
                     projects: newSetOfProjects
                 }, console.log (this.state.projects))
             });
-        // update state with new task... make a new array with
-        // task info... add new task object to the top of the list
+        // update state with new projects... make a new array with
+        // project info... add new project object to the top of the list
 
     };
+
+    handleDelete =(projectToRemove) => {
+        const updatedBoardArray = this.state.projects.filter(project => project.id !== projectToRemove.id);
+        this.setState({
+            projects : updatedBoardArray
+        }, () => this.handleDeleteBackEnd(projectToRemove));
+    };
+// removes the project board off the back end to persist when page reloads
+handleDeleteBackEnd = (projectToRemove) => {
+    fetch(`http://localhost:3007/projects/${projectToRemove.id}`, {method : 'DELETE'})
+};
 
     render() {
         return (
             <div>
+                <NavBar handleLogout={this.handleLogout}/>
                 <Switch>
                     <Route
                         path="/projects/:title"
@@ -83,7 +96,7 @@ class ProjectContainer extends Component {
                         render={() => {
                             let arrayOfProjectBoards = this.state.filteredProjects.map(
                                 projectObj => (
-                                    <ProjectBoard key={projectObj.name} project={projectObj} />
+                                    <ProjectBoard key={projectObj.name} project={projectObj} handleDelete={this.handleDelete}/>
                                 )
                             );
                             return (

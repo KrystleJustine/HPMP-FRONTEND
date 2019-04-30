@@ -87,7 +87,7 @@ class App extends Component {
         render() {
             return (
                 <div className="App">
-                    <NavBar handleLogout={this.handleLogout}/>
+
                     <Switch>
                         <Route
                             path="/projects"

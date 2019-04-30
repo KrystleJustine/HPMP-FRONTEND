@@ -11,9 +11,6 @@ const NavBar = props => {
             <Link to="/projects">
                 <li>Projects</li>
             </Link>
-            <Link to="/signup">
-                <li>Sign Up</li>
-            </Link>
             <Link to="/login">
                 <li>Log In</li>
             </Link>

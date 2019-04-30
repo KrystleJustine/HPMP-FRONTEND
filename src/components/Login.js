@@ -66,14 +66,7 @@ class Login extends React.Component {
                                             <button className="btn btn-success btn-lg btn-block" type="submit">Login
                                             </button>
                                         </div>
-                                        <div className="checkbox checkbox-success">
-                                            <input id="stay-sign" type="checkbox"/>
-                                            <label htmlFor="stay-sign">Stay signed in</label>
-                                        </div>
                                         <hr/>
-                                        <div className="text-center">
-                                            <label><a href="#">Forgot your password?</a></label>
-                                        </div>
                                     </form>
                                 </div>
 
@@ -101,10 +94,6 @@ class Login extends React.Component {
                                         <div className="form-group">
                                             <button className="btn btn-success btn-lg btn-block" type="submit">Sign Up!
                                             </button>
-                                        </div>
-                                        <div className="checkbox checkbox-success">
-                                            <input id="stay-sign" type="checkbox"/>
-                                            <label htmlFor="stay-sign">Stay signed in</label>
                                         </div>
                                         <hr/>
 

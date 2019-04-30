@@ -90,15 +90,15 @@ ul.switcher li{
 .login-container-wrapper {
   max-width: 400px;
   margin: 2% auto 5%;
-  padding: 40px;
+  padding: 60px;
   box-sizing: border-box;
   background: rgba(57, 89, 116, 0.8);
   box-shadow: 0px 30px 60px -5px #000;
   background-size:cover;
   background-blend-mode:saturation;
   position: absolute;
-  top: 33.3%;
-  left: 33.3%;
+  top: 15.3%;
+  left: 35.3%;
 
 }
 .login-container-wrapper .logo,
@@ -185,15 +185,6 @@ select:-webkit-autofill {
   border-color: #FAFFBD;
 }
 
-.login .checkbox label,
-.login .checkbox a {
-  color: #ddd;
-  vertical-align: top;
-}
-input[type="checkbox"]:checked + label::before,
-.checkbox-success input[type="radio"]:checked + label::before {
-  background-color: #25a08d !important;
-}
 .btn-success {
   background-color: #25a08d;
   background-image: none;

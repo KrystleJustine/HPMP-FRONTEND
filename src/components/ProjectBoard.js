@@ -15,23 +15,20 @@ const ProjectBoard = (props) => {
         )
         })
     );
-
     return (
 
         <div className="row">
             <div className="ui segment">
-
             <Card>
                 <Card.Content>
                     <div className="column"></div>
-                    <button className="right attached ui icon button" onClick={()=> {props.handleDelete(props.task)}}>
+                    <button className="right attached ui icon button" onClick={()=> {props.handleDelete(props.project)}}>
                         <i className="trash alternate icon"></i></button>
             <ul className="auto-sized-grid" key={props.id}>
                 <h1>{props.project.name}</h1>
                 {taskArray}
             </ul>
                 <div className="ui bottom attached button"><i className="add icon"></i>Add New Lead</div>
-
                 </Card.Content>
             </Card>
         </div>
@@ -39,5 +36,6 @@ const ProjectBoard = (props) => {
         </div>
 
     )
+
 };
 export default withRouter(ProjectBoard);
