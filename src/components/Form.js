@@ -26,9 +26,10 @@ submitHandler = e => {
               });
         };
 
+
 render() {
   return (
-  <form onSubmit={this.submitHandler}>
+  <form onSubmit={this.handleSubmit}>
           <input
               type="text"
               placeholder="Title"
@@ -45,13 +46,24 @@ render() {
           onChange={this.changeHandler}
         />
 
-        <input
-            type="select"
-            placeholder="Status"
-            name="status"
-            value={this.state.status}
-            onChange={this.changeHandler}
-        />
+
+        <select value={this.state.status} name="status" onChange={this.changeHandler}>
+            <option value="toDo">Validate</option>
+            <option value="inProgress">Done</option>
+            <option value="event">Working On It</option>
+            <option value="completed">Waiting For Review</option>
+            <option value="cancelled">Stuck!</option>
+            <option value="migrated">Migrated</option>
+            <option value="important">Research</option>
+            <option value="meeting">Production</option>
+        </select>
+
+
+      <select className="ui dropdown">
+          <option value="">Gender</option>
+          <option value="1">Male</option>
+          <option value="0">Female</option>
+      </select>
 
         <input
             type="text"

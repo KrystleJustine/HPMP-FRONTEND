@@ -40,6 +40,27 @@ class ProjectContainer extends Component {
         });
     };
 
+    handleSubmit = (event, taskObj) => {
+        event.preventDefault();
+        fetch ('http://localhost:3007/tasks', {
+            method: 'POST',
+            headers: {
+                "Accepts": 'application/json',
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(taskObj)})
+            .then(resp => resp.json())
+            .then(taskObj => {
+                const newSetOfTasks = [taskObj, ...this.state.tasks];
+                this.setState({
+                    tasks: newSetOfTasks
+                }, console.log (this.state.tasks))
+            });
+        // update state with new task... make a new array with
+        // task info... add new task object to the top of the list
+
+    };
+
     render() {
         return (
             <div>
@@ -67,7 +88,7 @@ class ProjectContainer extends Component {
                             );
                             return (
                                 <div>
-                                    <Form submitHandler={this.submitHandler} />
+                                    <Form submitHandler={this.submitHandler} handleSubmit={this.handleSubmit}/>
                                     <br />
                                     <Search
                                         value={this.state.searchTerm}
