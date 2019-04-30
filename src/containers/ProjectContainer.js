@@ -40,21 +40,21 @@ class ProjectContainer extends Component {
         });
     };
 
-    handleSubmit = (event, taskObj) => {
+    handleSubmit = (event, projectObj) => {
         event.preventDefault();
-        fetch ('http://localhost:3007/tasks', {
+        fetch ('http://localhost:3007/projects', {
             method: 'POST',
             headers: {
                 "Accepts": 'application/json',
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(taskObj)})
+            body: JSON.stringify(projectObj)})
             .then(resp => resp.json())
-            .then(taskObj => {
-                const newSetOfTasks = [taskObj, ...this.state.tasks];
+            .then(newBoard => {
+                const newSetOfProjects = [newBoard, ...this.state.projects];
                 this.setState({
-                    tasks: newSetOfTasks
-                }, console.log (this.state.tasks))
+                    projects: newSetOfProjects
+                }, console.log (this.state.projects))
             });
         // update state with new task... make a new array with
         // task info... add new task object to the top of the list
@@ -88,6 +88,7 @@ class ProjectContainer extends Component {
                             );
                             return (
                                 <div>
+
                                     <Form submitHandler={this.submitHandler} handleSubmit={this.handleSubmit}/>
                                     <br />
                                     <Search
@@ -97,7 +98,7 @@ class ProjectContainer extends Component {
                                     <br />
 
                                     {this.state.projects.length > 0 ? (
-                                        arrayOfProjectBoards
+                                        <div className="board-container"> {arrayOfProjectBoards} </div>
                                     ) : (
                                         <div className="ui segment">
                                             <div className="ui active dimmer">

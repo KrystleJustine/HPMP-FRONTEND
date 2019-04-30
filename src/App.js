@@ -13,6 +13,16 @@ class App extends Component {
         admin: {}
     };
 
+   handleLogout = () => {
+       this.setState({
+           admin: {}
+       })
+
+       localStorage.removeItem("token");
+       this.props.history.push("/login");
+   }
+
+
 
 
     // componentDidMount = () => {
@@ -77,7 +87,7 @@ class App extends Component {
         render() {
             return (
                 <div className="App">
-                    <NavBar />
+                    <NavBar handleLogout={this.handleLogout}/>
                     <Switch>
                         <Route
                             path="/projects"
@@ -92,7 +102,7 @@ class App extends Component {
                             render={() => <Login submitHandler={this.loginSubmitHandler} />}
                         />
                         <Route path="/home" render={() => <Home admin={this.state.admin} />} />
-                        {/*<Route path="/" component={Error} />*/}
+
                     </Switch>
                 </div>
             );

@@ -46,6 +46,20 @@ render() {
           onChange={this.changeHandler}
         />
 
+<div>
+      <h4 className="ui header">New Projects</h4>
+      <p>Create a new Project board </p>
+      <span>
+  Pick Your Project Lead
+  <div className="ui inline dropdown">
+    <div className="text">
+      <img className="ui avatar image" src="/images/avatar/small/jenny.jpg" alt=""/>
+      Jenny Hess
+    </div>
+  </div>
+      </span>
+  </div>
+
 
         <select value={this.state.status} name="status" onChange={this.changeHandler}>
             <option value="toDo">Validate</option>
@@ -57,13 +71,6 @@ render() {
             <option value="important">Research</option>
             <option value="meeting">Production</option>
         </select>
-
-
-      <select className="ui dropdown">
-          <option value="">Gender</option>
-          <option value="1">Male</option>
-          <option value="0">Female</option>
-      </select>
 
         <input
             type="text"

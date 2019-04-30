@@ -17,7 +17,7 @@ const ProjectBoard = (props) => {
     );
 
     return (
-        <div className="ui three column grid">
+
         <div className="row">
             <div className="ui segment">
 
@@ -35,7 +35,7 @@ const ProjectBoard = (props) => {
                 </Card.Content>
             </Card>
         </div>
-        </div>
+
         </div>
 
     )

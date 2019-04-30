@@ -50,10 +50,10 @@ class Login extends React.Component {
                         {this.state.signupModal === false ?
                             <div className="tab-content">
                                 <div className="tab-pane active" id="login">
-                                    <form className="form-horizontal login-form" >
+                                    <form className="form-horizontal login-form" onSubmit={this.submitHandler} >
                                         <div className="form-group relative">
                                             <input className="form-control input-lg" id="login_username"
-                                                   placeholder="E-mail Address" required="" type="email"/> <i
+                                                   placeholder="Username" required="" type="username"/> <i
                                             className="fa fa-user"></i>
                                         </div>
                                         <div className="form-group relative">
@@ -82,10 +82,10 @@ class Login extends React.Component {
 
                             <div className="tab-content">
                                 <div className="tab-pane active" id="singup">
-                                    <form className="form-horizontal login-form">
+                                    <form className="form-horizontal login-form" onSubmit={this.submitHandler}>
                                         <div className="form-group relative">
                                             <input className="form-control input-lg"
-                                                   placeholder="E-mail Address" required="" name="username" type="email"/> <i
+                                                   placeholder="E-mail Address" required="" name="username" type="username"/> <i
                                             className="fa fa-user"></i>
                                         </div>
                                         <div className="form-group relative">
