@@ -1,16 +1,25 @@
 import React from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
+
+
 const Home = props => {
-    console.log("admin", props.admin);
     return (
         <div>
+
             {Object.keys(props.admin).length > 0 ? (
-                <h1>Home</h1>
+                <Redirect to="/projects"/>
             ) : (
-                <Redirect to="/login" />
+               <div>
+                <h1>Home</h1>
+                <Link to="/login">Login</Link>
+               </div>
             )}
         </div>
     );
 };
 
 export default Home;
+
+
+
+

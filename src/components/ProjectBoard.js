@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
+import {  withRouter } from "react-router-dom";
 import { Card } from 'semantic-ui-react'
 import TaskCard from "./TaskCard";
 
@@ -24,11 +24,10 @@ const ProjectBoard = (props) => {
                     <div className="column"></div>
                     <button className="right attached ui icon button" onClick={()=> {props.handleDelete(props.project)}}>
                         <i className="trash alternate icon"></i></button>
-            <ul className="auto-sized-grid" key={props.id}>
-                <h1>{props.project.name}</h1>
-                {taskArray}
-            </ul>
-                <div className="ui bottom attached button"><i className="add icon"></i>Add New Lead</div>
+                    <ul className="auto-sized-grid" key={props.id}>
+                        <h1>{props.project.name}</h1>
+                        {taskArray}
+                    </ul>
                 </Card.Content>
             </Card>
         </div>

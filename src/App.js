@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import './App.css';
 import {Route, Switch, withRouter} from 'react-router-dom';
 import Login from "./components/Login";
-import NavBar from './components/NavBar';
 import Signup from "./components/Signup";
 import Home from "./components/Home";
 import ProjectContainer from "./containers/ProjectContainer"
+import NewProject from "./components/NewProject";
+
 
 class App extends Component {
 
@@ -21,9 +22,6 @@ class App extends Component {
        localStorage.removeItem("token");
        this.props.history.push("/login");
    }
-
-
-
 
     // componentDidMount = () => {
     //     let token = localStorage.token;
@@ -95,14 +93,20 @@ class App extends Component {
                         />
                         <Route
                             path="/signup"
-                            render={() => <Signup submitHandler={this.signupSubmitHandler} />}
+                            render={() => <Login submitHandler={this.signupSubmitHandler} />}
                         />
                         <Route
                             path="/login"
                             render={() => <Login submitHandler={this.loginSubmitHandler} />}
                         />
-                        <Route path="/home" render={() => <Home admin={this.state.admin} />} />
-
+                        <Route
+                            path="/home"
+                            render={() => <Home admin={this.state.admin} />}
+                        />
+                        <Route
+                            path="/newprojects"
+                            render={() => <NewProject submitHandler={this.loginSubmitHandler} />}
+                        />
                     </Switch>
                 </div>
             );

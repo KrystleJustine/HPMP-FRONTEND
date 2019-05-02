@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
-import Form from "../components/Form";
 import Search from "../components/Search";
 import ProjectBoard from "../components/ProjectBoard"
 import NavBar from "../components/NavBar";
+import NewProject from '../components/NewProject'
 
 
 class ProjectContainer extends Component {
@@ -25,8 +25,10 @@ class ProjectContainer extends Component {
             : this.props.history.push("/login");
     }
 
-    submitHandler = project => {
-        this.setState({ projects: [project, ...this.state.projects] });
+    submitHandler = (e,project) => {
+        e.preventDefault();
+        this.setState({ projects: [project, ...this.state.projects]},
+        ()=> console.log(this.state.projects));
     };
 
     changeHandler = e => {
@@ -40,7 +42,7 @@ class ProjectContainer extends Component {
             searchTerm: e.target.value
         });
     };
-
+    // to add a new project board
     handleSubmit = (event, projectObj) => {
         event.preventDefault();
         fetch ('http://localhost:3007/projects', {
@@ -61,8 +63,8 @@ class ProjectContainer extends Component {
         // project info... add new project object to the top of the list
 
     };
-
-    handleDelete =(projectToRemove) => {
+    // to delete a project board
+    handleDelete = (projectToRemove) => {
         const updatedBoardArray = this.state.projects.filter(project => project.id !== projectToRemove.id);
         this.setState({
             projects : updatedBoardArray
@@ -74,6 +76,7 @@ handleDeleteBackEnd = (projectToRemove) => {
 };
 
     render() {
+        console.log(this.state);
         return (
             <div>
                 <NavBar handleLogout={this.handleLogout}/>
@@ -90,20 +93,25 @@ handleDeleteBackEnd = (projectToRemove) => {
                             return <ProjectBoard project={project} />;
                         }}
                     />
-
+                    <Route
+                        path="/newprojects"
+                        render={renderProps => {
+                            console.log(renderProps);
+                            return (
+                            <NewProject handleSubmit={this.handleSubmit} submitHandler={this.submitHandler}/>
+                        )
+                        }}
+                        />
                     <Route
                         path="/projects"
                         render={() => {
-                            let arrayOfProjectBoards = this.state.filteredProjects.map(
+                            let arrayOfProjectBoards = this.state.projects.map(
                                 projectObj => (
                                     <ProjectBoard key={projectObj.name} project={projectObj} handleDelete={this.handleDelete}/>
                                 )
                             );
                             return (
                                 <div>
-
-                                    <Form submitHandler={this.submitHandler} handleSubmit={this.handleSubmit}/>
-                                    <br />
                                     <Search
                                         value={this.state.searchTerm}
                                         changeHandler={this.changeHandler}
@@ -124,6 +132,7 @@ handleDeleteBackEnd = (projectToRemove) => {
                             );
                         }}
                     />
+
                 </Switch>
             </div>
         );

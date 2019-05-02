@@ -15,21 +15,21 @@ class Form extends React.Component {
     });
 };
 
-submitHandler = e => {
-        e.preventDefault();
-        this.props.submitHandler(this.state);
-        this.setState({
-                  title: "",
-                  description: "",
-                  status: "",
-                  img: ""
-              });
-        };
+// submitHandler = e => {
+//         e.preventDefault();
+//         this.props.submitHandler(this.state);
+//         this.setState({
+//                   title: "",
+//                   description: "",
+//                   status: "",
+//                   img: ""
+//               });
+//         };
 
 
 render() {
   return (
-  <form onSubmit={this.handleSubmit}>
+  <form onSubmit={(e) => this.props.submitHandler(e, this.state)}>
           <input
               type="text"
               placeholder="Title"

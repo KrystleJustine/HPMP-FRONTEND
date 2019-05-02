@@ -11,10 +11,13 @@ const NavBar = props => {
             <Link to="/projects">
                 <li>Projects</li>
             </Link>
+            <Link to="/newprojects">
+                <li>New Projects</li>
+            </Link>
             <Link to="/login">
                 <li>Log In</li>
             </Link>
-            <Link onClick={() => props.handleLogout()}>Log Out</Link>
+            <Link to="/login" onClick={() => props.handleLogout()}>Log Out</Link>
         </ul>
     );
 };
