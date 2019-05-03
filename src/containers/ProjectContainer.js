@@ -42,6 +42,7 @@ class ProjectContainer extends Component {
             searchTerm: e.target.value
         });
     };
+
     // to add a new project board
     handleSubmit = (event, projectObj) => {
         event.preventDefault();
@@ -79,7 +80,7 @@ handleDeleteBackEnd = (projectToRemove) => {
         console.log(this.state);
         return (
             <div>
-                <NavBar handleLogout={this.handleLogout}/>
+                <NavBar onChange={this.changeHandler} handleLogout={this.handleLogout} value={this.searchTerm}/>
                 <Switch>
                     <Route
                         path="/projects/:title"
@@ -110,12 +111,10 @@ handleDeleteBackEnd = (projectToRemove) => {
                                     <ProjectBoard key={projectObj.name} project={projectObj} handleDelete={this.handleDelete}/>
                                 )
                             );
+
                             return (
                                 <div>
-                                    <Search
-                                        value={this.state.searchTerm}
-                                        changeHandler={this.changeHandler}
-                                    />
+
                                     <br />
 
                                     {this.state.projects.length > 0 ? (

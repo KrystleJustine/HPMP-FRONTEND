@@ -1,6 +1,14 @@
 import React, { Component} from "react";
 import { Link, withRouter } from "react-router-dom";
-import { Menu, Dropdown, Image, Icon, Button, Search} from 'semantic-ui-react'
+import {
+    Menu,
+    Dropdown,
+    Image,
+    Icon,
+    Button,
+    Search,
+    Popup
+} from 'semantic-ui-react'
 
 
 class NavBar extends Component {
@@ -18,7 +26,7 @@ class NavBar extends Component {
            <div>
 
 
-               <Menu className='ui secondary pointing menu'>
+               <Menu className='ui pointing secondary menu'>
 
                     <Menu.Item name='home' active={activeTab === 'home'} as={Link} to="/home" onClick={this.handleItemClick}>
                         Home
@@ -35,14 +43,15 @@ class NavBar extends Component {
 
                    <div className='right menu'>
                        <div className="item">
-                           <Search/>
+                           <Search value={this.props.searchTerm} changeHandler={this.props.changeHandler} onChange={this.changeHandler}/>
                        </div>
                    </div>
 
 
                     <Menu.Menu position="right">
                         <Button.Group color='blue'>
-                            <Dropdown icon='fa-terminal' selection button className='icon'>
+                            <Dropdown icon='large fa-terminal' selection button className='icon'>
+                                {/*<Popup trigger={<Button icon='fa-terminal'/>} content='Click Here'/>*/}
                                 <Dropdown.Menu>
                                     <Dropdown.Divider/>
                                     <Dropdown.Item icon='plus' text='New Project' as={Link} to="/newprojects"/>
