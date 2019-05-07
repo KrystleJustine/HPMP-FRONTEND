@@ -1,8 +1,9 @@
 import React from "react";
-import { Redirect, Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import NavBar from './NavBar'
 
 const Home = props => {
+    debugger
     return (
         <div>
         <NavBar/>

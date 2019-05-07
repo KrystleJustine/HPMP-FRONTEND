@@ -1,15 +1,15 @@
 import React from 'react';
 import { withRouter } from "react-router-dom";
-import Form from './Form'
-import NavBar from './NavBar'
+import NewProjectForm from './NewProjectForm'
+
 
 
 const NewProject = (props) => {
+    console.log(props, 'NewProject');
         return (
             <div>
-                <NavBar/>
                 <br/>
-                <Form submitHandler={props.submitHandler} handleSubmit={props.handleSubmit}/>
+                <NewProjectForm handleNewProjectSubmit={props.handleNewProjectSubmit} />
             </div>
         );
     };

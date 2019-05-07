@@ -1,13 +1,10 @@
 import React, { Component} from "react";
 import { Link, withRouter } from "react-router-dom";
+import SearchBar from './SearchBar';
 import {
     Menu,
     Dropdown,
-    Image,
-    Icon,
-    Button,
-    Search,
-    Popup
+    Button
 } from 'semantic-ui-react'
 
 
@@ -43,20 +40,19 @@ class NavBar extends Component {
 
                    <div className='right menu'>
                        <div className="item">
-                           <Search value={this.props.searchTerm} changeHandler={this.props.changeHandler} onChange={this.changeHandler}/>
+                           <SearchBar searchResults={this.props.searchResults} value={this.props.searchTerm} changeHandler={this.props.changeHandler} placeholder="...gfkfhdkhf!!" />
                        </div>
                    </div>
 
 
                     <Menu.Menu position="right">
                         <Button.Group color='blue'>
-                            <Dropdown icon='large fa-terminal' selection button className='icon'>
-                                {/*<Popup trigger={<Button icon='fa-terminal'/>} content='Click Here'/>*/}
+                            <Dropdown icon='terminal large' button className='icon'>
                                 <Dropdown.Menu>
                                     <Dropdown.Divider/>
                                     <Dropdown.Item icon='plus' text='New Project' as={Link} to="/newprojects"/>
                                     <Dropdown.Item icon='address card outline' text='Projects' as={Link} to="/projects"/>
-                                    <Dropdown.Item icon='fa-sign-out-alt' text='Log Out' as={Link} to="/login"/>
+                                    <Dropdown.Item icon='sign-out alternate' text='Log Out' as={Link} to="/login" onClick={this.props.handleLogout}/>
                                 </Dropdown.Menu>
                             </Dropdown>
                         </Button.Group>

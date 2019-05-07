@@ -1,4 +1,8 @@
-@import url(https://fonts.googleapis.com/css?family=Varela);
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+html, body, h1 , h2, h3, h4, h5, form, input, div, section, main, button, textarea {
+  font-family: "Montserrat" sans-serif !important;
+}
 .App {
   text-align: center;
 }
@@ -37,7 +41,7 @@ html {
   height: 100%;
 }
 body {
-  font-family: 'Varela', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 14px;
   line-height: 1.5;
   color: #333;
@@ -227,4 +231,11 @@ select:-webkit-autofill {
 
 .auto-sized-grid {
   padding: 0;
+}
+
+#root > div > div > div:nth-child(2) > div > div.ui.segment {
+  width: 40%;
+  margin: 2vw auto;
+  box-shadow: 16px 31px 48px -23px rgba(78,115,115,1);
+  /*box-shadow: 10px 10px 15px 1px rgba(93,163,149,1);*/
 }

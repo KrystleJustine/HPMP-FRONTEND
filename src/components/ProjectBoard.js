@@ -6,7 +6,6 @@ import TaskCard from "./TaskCard";
 
 // for each board I need 3 task cards
 const ProjectBoard = (props) => {
-
     const taskArray = (props.project.tasks.map(task=> {
     return (
         <div key={task.id}>
@@ -22,7 +21,7 @@ const ProjectBoard = (props) => {
             <Card>
                 <Card.Content>
                     <div className="column"></div>
-                    <button className="right attached ui icon button" onClick={()=> {props.handleDelete(props.project)}}>
+                    <button className="right attached ui icon button" onClick={()=>{props.handleDelete(props.project)}}>
                         <i className="trash alternate icon"></i></button>
                     <ul className="auto-sized-grid" key={props.id}>
                         <h1>{props.project.name}</h1>
