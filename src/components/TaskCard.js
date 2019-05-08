@@ -7,7 +7,7 @@ import { withRouter } from "react-router-dom";
 const TaskCard = (props) => {
 
     return (
-        <div className="ui cards">
+        <div className=" ui cards">
             <div className="card">
                 <div className="content">
                     <img className="right floated mini ui image" src={props.task.lead.img} alt=""/>

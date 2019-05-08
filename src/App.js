@@ -145,26 +145,28 @@ class App extends Component {
 
                     <Switch>
                         <Route
-                            path="/"
-                            render={() => <ProjectContainer admin={this.state.admin} projects={this.state.projects}
-                                                            handleDelete={this.handleDelete} />}
-                        />
-                        <Route
                             path="/signup"
                             render={() => <Signup submitHandler={this.signupSubmitHandler} />}
                         />
                         <Route
-                            path="/login"
-                            render={() => <Login submitHandler={this.loginSubmitHandler} />}
+                            exact path="/login"
+                            render={() => {
+                                console.log('login route')
+                                return <Login submitHandler={this.loginSubmitHandler} />}}
                         />
+                        {/*<Route*/}
+                            {/*path="/home"*/}
+                            {/*render={() => <Home admin={this.state.admin} />}*/}
+                        {/*/>*/}
+                        {/*<Route*/}
+                            {/*path="/newprojects"*/}
+                            {/*render={() => <NewProject handleNewProjetSubmit={this.handleNewProjectSubmit()}*/}
+                            {/*/>}*/}
+                        {/*/>*/}
                         <Route
-                            path="/home"
-                            render={() => <Home admin={this.state.admin} />}
-                        />
-                        <Route
-                            path="/newprojects"
-                            render={() => <NewProject handleNewProjetSubmit={this.handleNewProjectSubmit()}
-                            />}
+                            path="/"
+                            render={() => <ProjectContainer admin={this.state.admin} projects={this.state.projects}
+                                                            handleDelete={this.handleDelete} />}
                         />
                     </Switch>
                 </div>

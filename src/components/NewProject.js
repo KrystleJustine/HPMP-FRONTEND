@@ -5,7 +5,7 @@ import NewProjectForm from './NewProjectForm'
 
 
 const NewProject = (props) => {
-    console.log(props, 'NewProject');
+    console.log('NewProject');
         return (
             <div>
                 <br/>

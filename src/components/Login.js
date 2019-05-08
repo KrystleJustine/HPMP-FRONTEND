@@ -49,6 +49,7 @@ class Login extends React.Component {
 
 
 render() {
+    console.log('login rendered')
     return (
         <div className="login">
             <div className="container">

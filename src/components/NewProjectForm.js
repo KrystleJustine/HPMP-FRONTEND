@@ -4,6 +4,19 @@ import { Segment, Dropdown, TextArea, Form , Select, Label} from 'semantic-ui-re
 class NewProjectForm extends React.Component {
 
   state = {
+      task1: {
+          title: "",
+          status: ""
+      },
+      task2: {
+          title: "",
+          status: ""
+      },
+      task3: {
+          title: "",
+          status: ""
+      },
+
       title: "",
       description: "",
       status: "",
@@ -17,9 +30,11 @@ class NewProjectForm extends React.Component {
 
 
     changeHandler = e => {
-      console.log(e.target.value);
+      console.log(e.target.data.attribute);
+      let updatedTask = {...this.state[e.target.name]};
+      updatedTask.name = e.target.value;
      this.setState({
-         [e.target.name]: e.target.value
+         [e.target.name]: updatedTask
     });
 };
 
@@ -81,8 +96,8 @@ statusOptions = [
 ];
 
 
+
 render() {
-    console.log("I'm here bitches");
   return (
       <div>
         <h4 className="ui header">Create a new Project board</h4>
@@ -99,6 +114,7 @@ render() {
 
 
         <div style={{display:'flex', alignContent:'center', textAlign:'center', justifyContent:'space-evenly'}}>
+            {/*Project Manager Lead*/}
             <Form onSubmit={(e) => this.props.handleNewProjectSubmit(e, this.state)} >
                 <Form.Group widths={3}>
                     <Segment inline className='form-segment'>
@@ -127,7 +143,8 @@ render() {
                         <TextArea
                             rows={2}
                             placeholder= "Role Responsibilities"
-                            name="description"
+                            name="task1"
+                            data-attribute="name"
                             value={this.state.description}
                             onChange={this.changeHandler}
                             width={4}
@@ -136,12 +153,13 @@ render() {
                         <br/>
                         <Select placeholder="Select Status" options={this.statusOptions} value={this.state.status} onChange={this.changeHandler}/>
                         <br/>
+                        <br/>
                         <button type="submit" >Create New PM Lead Card</button>
                         <br/>
                     </Segment>
                 </Form.Group>
             </Form>
-
+            {/*UX/UI Lead*/}
             <Form onSubmit={(e) => this.props.handleNewProjectSubmit(e, this.state)} >
                 <Form.Group widths={3}>
                     <Segment inline>
@@ -179,14 +197,12 @@ render() {
                         <br/>
                         <Select placeholder="Select Status" options={this.statusOptions} value={this.state.status} onChange={this.changeHandler}/>
                         <br/>
+                        <br/>
                         <button type="submit" >Create New UX/UI Lead Card</button>
                     </Segment>
                 </Form.Group>
             </Form>
-
-
             {/*Dev Lead*/}
-
             <Form onSubmit={(e) => this.props.handleNewProjectSubmit(e, this.state)} >
                 <Form.Group widths={3}>
                     <Segment inline>
@@ -224,27 +240,24 @@ render() {
                         <br/>
                         <Select placeholder="Select Status" options={this.statusOptions} value={this.state.status} onChange={this.changeHandler}/>
                         <br/>
+                        <br/>
+                        <div className="wrapper">
+                            <div className="button-block">
+                                <button type="button">
+                                    <i className="mark x"> ,</i>
+                                    <i className="mark xx">l </i>
+                                </button>
+                            </div>
+                        </div>
                         <button type="submit" >Create New UX/UI Lead Card</button>
                     </Segment>
                 </Form.Group>
             </Form>
-
-
         </div>
+
       </div>
     )
   }
 }
 
 export default NewProjectForm;
-
-// {/*<select value={this.state.status} name="status" onChange={this.changeHandler}>*/}
-// {/*<option value="to Do">Validate</option>*/}
-// {/*<option value="inProgress">Done</option>*/}
-// {/*<option value="event">Working On It</option>*/}
-// {/*<option value="completed">Waiting For Review</option>*/}
-// {/*<option value="cancelled">Stuck!</option>*/}
-// {/*<option value="migrated">Migrated</option>*/}
-// {/*<option value="important">Research</option>*/}
-// {/*<option value="meeting">Production</option>*/}
-// {/*</select>*/}

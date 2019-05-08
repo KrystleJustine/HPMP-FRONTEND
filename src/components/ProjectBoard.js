@@ -16,13 +16,13 @@ const ProjectBoard = (props) => {
     );
     return (
 
-        <div className="row">
+        <div className="box">
             <div className="ui segment">
             <Card>
                 <Card.Content>
                     <div className="column"></div>
-                    <button className="right attached ui icon button" onClick={()=>{props.handleDelete(props.project)}}>
-                        <i className="trash alternate icon"></i></button>
+                    <button className="ui icon button" onClick={()=>{props.handleDelete(props.project)}}>
+                        <i className=" right delete alternate icon"></i></button>
                     <ul className="auto-sized-grid" key={props.id}>
                         <h1>{props.project.name}</h1>
                         {taskArray}
@@ -30,9 +30,7 @@ const ProjectBoard = (props) => {
                 </Card.Content>
             </Card>
         </div>
-
-        </div>
-
+            </div>
     )
 
 };
